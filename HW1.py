@@ -5,12 +5,10 @@
 import numpy as np
 from operator import mul
 
-#######ESERCIZIO 1###########
+########### EXERCISE 1  ##############
 #A = [1,1,1,3,1,1,1]
 #A = [1,2,1,3,4,2,1,1]
 #A = [1,2,1,4,1,1]
-
-################################
 
 def max_subarray(A):
      max_ending_here = max_so_far = A[0]
@@ -23,11 +21,11 @@ A=[-2,3,2,0.1]
 
 #print max_subarray(A)
 
-#https://www.youtube.com/watch?v=86CQq3pKSUw
 
 
 
-###### ESERCIZIO 2 #######
+
+############# EXERCISE 2 ##############
 
 G = {"F": ["B","G"],
      "B": ["A","D"],
@@ -91,65 +89,11 @@ def listaHub(grafo):
             #print C2
             listaNodi.remove(arco[1])
         #print listaNodi
-    return listaNodi[0]      #primo elemento hub di quelli che  trovi
+    return listaNodi[0]      #ritorno il primo elemento tra gli hub trovati
 
 #print listaHub(G)
 
-################ ESERCIZIO 4 #####################
-
-
-jobs = [(1,1) , (2,11) , (3,7) , (4,7)]
-
-numeroMacchine = 2
-
-
-
-def secondoElemento(tupla) :
-    return tupla[1]
-
-jobs = sorted(jobs,key=secondoElemento)
-
-#[(1, 1), (3, 7), (4, 7), (2, 11)]
-
-#print jobs.pop()
-#print jobs
-
-
-#macchinaGrande.append(maxItem)
-
-while len(jobs) > 0:
-
-    macchinaGrande = []
-    jobs = sorted(jobs, key=secondoElemento)
-    cmax = jobs[-1][1]
-    ctotal = cmax*numeroMacchine
-
-    while ctotal>0:
-        maxItem = jobs.pop()
-        if ctotal >= maxItem[1]:
-            macchinaGrande.append(maxItem)
-            ctotal = ctotal - maxItem[1]
-            #print ctotal
-        else:
-            processoResiduo = (maxItem[0],ctotal)
-            macchinaGrande.append(processoResiduo)
-            ctotal = ctotal - processoResiduo[1]
-            jobs.append((maxItem[0],maxItem[1]-processoResiduo[1])) #inserisco il job col valore rimanente
-            #print ctotal
-        #print ctotal
-        if len(jobs) == 0:
-            break
-
-
-    #print "i jobs nella mia macchina sono : "
-    #print macchinaGrande
-
-    #print "i jobs ancora da schedulare sono : "
-    #print jobs
-
-
-
- ###############ESERCIZIO 5#################
+################ EXERCISE 4 #####################
 
 
 class Processo:
@@ -214,7 +158,7 @@ totalDuration = sum(durate)
 
 processi = [Processo(durata) for durata in durate]
 
-rapporto = approximation(totalDuration , m)
+rapporto = approximation(totalDuration , m)   #nel pdf equivale a C
 
 M = [Macchina(rapporto) for _ in range(m)]
 
